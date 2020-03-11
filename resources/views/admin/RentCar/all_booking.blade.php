@@ -14,7 +14,7 @@
 
 <div class="app-title">
         <div>
-           <h1>All Lounge bookings</h1>
+           <h1>All Rent Car bookings</h1>
         </div>
      </div>
 <table id="example" class="table table-striped table-bordered" style="width:100%">

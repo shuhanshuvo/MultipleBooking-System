@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Package;
 use App\User;
 use App\Order;
@@ -114,6 +115,29 @@ class ManagementController extends Controller
     {   
         $user = User::find($id);
         return view('admin.user.user_profile', compact('user'));
+    }
+
+    public function update_user(Request $request)
+    {
+        $user = User::where('id',$request->user_id)->first();
+        
+        $user->name=$request->name;
+        $user->phone=$request->phone;
+        $user->email=$request->email;
+        
+        // logo
+        if ($request->hasFile('photo')) {
+            $files=$request->file('photo');  
+            $filename=$files->getClientOriginalName();
+            $picture=date('His').$filename;
+            $destination_path=base_path().'/public/backend/photo/';
+            $files->move($destination_path, $picture); 
+            $user->photo=$picture;
+        }
+       
+       
+        $user->save();
+        return redirect()->back()->with('success', ' User profile update successfully');
     }
 
     public function all_verified_user()

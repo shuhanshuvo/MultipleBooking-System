@@ -10,14 +10,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/','FrontendController@homeindex');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('movie-grid', 'FrontendController@movie_grid')->name('movie.grid');
+Route::get('package-details/{id}', 'FrontendController@package_details')->name('home.package.details');
+Route::get('hotel-details/{id}', 'FrontendController@hotel_details')->name('hotel.details');
+Route::get('lounge-details/{id}', 'FrontendController@lounge_details')->name('home.lounge.details');
+
+Route::get('contact', 'FrontendController@contact')->name('contact.page');
+Route::post('store-contact', 'FrontendController@store_contact')->name('store.contact');
+Route::get('movie-seat-plan', 'FrontendController@movie_seat_plan')->name('movie.seat.plan');
+Route::post('/subscriber','FrontendController@subscriber');
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/custom-login', 'CustomLoginController@custom_login')->name('custom.login');
 Route::post('/custom-reg', 'CustomLoginController@custom_reg')->name('custom.reg');
@@ -194,7 +202,12 @@ Route::group(['middleware' => ['auth:admin']], function() {
             Route::get('/all-verified-user', 'ManagementController@all_verified_user')->name('admin.all.verified.user');
 
             Route::get('/edit-user/{id}', 'ManagementController@edit_user')->name('admin.edit.user');
-            // Route::post('/update-user', 'ManagementController@update_user')->name('admin.update.user');
+            Route::post('/update-user', 'ManagementController@update_user')->name('admin.update.user');
+
+
+// Subscriber
+            Route::get('/subscriber','FrontendController@all_subscriber')->name('admin.all.subscriber');
+            Route::post('/subscriber-delete', 'FrontendController@subscriber_delete')->name('admin.subscribe.delete');
 
     
  
@@ -230,7 +243,7 @@ Route::group(['middleware' => ['auth']], function() {
 
              Route::get('/all-hotel', 'UserController@all_hotel')->name('user.all.hotel');
              Route::get('/all-room/{id}', 'UserController@all_room')->name('user.all.room');
-             Route::get('hotel-detailes/{id}','UserController@hotel_details')->name('hotel.details');
+             // Route::get('hotel-detailes/{id}','UserController@hotel_details')->name('hotel.details');
              Route::get('room-detailes/{id}','UserController@room_details')->name('room.details');
 
 //Lounge Show...........
@@ -273,6 +286,11 @@ Route::group(['middleware' => ['auth']], function() {
             Route::post('rentCar-checkout','PaymentController@store_rentCar_checkout')->name('store.rentCar.checkout');
 
 
+   // Order History
+            Route::get('package-history','UserController@package_history')->name('package.history');
+            Route::get('lounge-history','UserController@lounge_history')->name('lounge.history');
+            Route::get('hotel-room-history','UserController@hotel_history')->name('hotel.history');
+            Route::get('rent-car-history','UserController@rentCar_history')->name('rentCar.history');
                 
             });
         });

@@ -35,13 +35,15 @@
             <li><a class="treeview-item" href="{{route('user.all.rentCar')}}"><i class="icon fa fa-circle-o"></i>All Rent Car</a></li>
           </ul>
         </li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Pages</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Order History</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="blank-page.html"><i class="icon fa fa-circle-o"></i> Blank Page</a></li>
-            <li><a class="treeview-item" href="page-login.html"><i class="icon fa fa-circle-o"></i> Login Page</a></li>
+            <li><a class="treeview-item" href="{{route('package.history')}}"><i class="icon fa fa-circle-o"></i> Package History</a></li>
+            <li><a class="treeview-item" href="{{route('lounge.history')}}"><i class="icon fa fa-circle-o"></i>Lounge History</a></li>
+            <li><a class="treeview-item" href="{{route('hotel.history')}}"><i class="icon fa fa-circle-o"></i>Hotel History</a></li>
+            <li><a class="treeview-item" href="{{route('rentCar.history')}}"><i class="icon fa fa-circle-o"></i>Rent Car History</a></li>
             
           </ul>
         </li>
-        <li><a class="app-menu__item" href="docs.html"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Docs</span></a></li>
+       
       </ul>
     </aside>

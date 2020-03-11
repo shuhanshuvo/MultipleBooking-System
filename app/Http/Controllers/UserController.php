@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -12,6 +11,7 @@ use App\Room;
 use App\Lounge;
 use App\Pickup;
 use App\RentCar;
+use App\Order;
 
 class UserController extends Controller
 {    
@@ -48,7 +48,7 @@ class UserController extends Controller
        
        
         $user->save();
-        return redirect()->back()->with('success', ' Use profile update successfully');
+        return redirect()->back()->with('success', ' User profile update successfully');
     }
 
 
@@ -179,6 +179,82 @@ class UserController extends Controller
        $rentCars = RentCar::findOrFail($id);
         return view('user.RentCar.rentCar_details',compact('rentCars'));
     }
+
+
+
+    public function package_history()
+    {   
+       $user_id =  Auth::user()->id;
+   // return $orders = Order::
+   //                  ->where('user_id',$user_id)
+   //                  ->orderBy('id','desc')->get();
+
+
+        $orders = Order::join('packages','orders.package_id','=','packages.id')
+                            ->join('users','orders.user_id','=','users.id')
+                            ->select('orders.*', 'packages.pkg_name', 'packages.min_num','packages.booking_date','packages.till_date','users.name', 'users.phone')
+                            ->orderBy('orders.id','desc')
+                            ->where('user_id',$user_id)
+                            ->orderBy('id','desc')
+                            ->get();
+        return view('user.packageHistory', compact('orders'));
+    }
+
+
+
+
+    public function lounge_history()
+    {   
+
+        $user_id =  Auth::user()->id;
+        $orders = Order::join('lounges','orders.lounge_id','=','lounges.id')
+                        ->join('users','orders.user_id','=','users.id')
+            
+                        ->select('orders.*', 'lounges.lounge_name', 'lounges.max_num_hour','lounges.max_num','lounges.location','users.name','users.phone')
+                        ->orderBy('orders.id','desc')
+                        ->where('user_id',$user_id)
+                        ->orderBy('id','desc')
+                        ->get();
+
+        return view('user.lounge_history',compact('orders'));
+
+
+    }
+
+
+     public function hotel_history()
+    {   
+        $user_id =  Auth::user()->id;
+        $orders = Order::join('rooms','orders.room_id','=','rooms.id')
+            ->join('users','orders.user_id','=','users.id')
+            ->join('hotels','orders.hotel_id','=','hotels.id')
+            ->select('orders.*', 'rooms.room_name','users.name','users.phone','hotels.htl_name')
+            ->orderBy('orders.id','desc')
+                        ->where('user_id',$user_id)
+                        ->orderBy('id','desc')
+                        ->get();
+        return view('user.hotel_history',compact('orders'));
+
+
+    }
+
+
+    public function rentCar_history()
+    {    
+        $user_id =  Auth::user()->id;
+        $orders = Order::join('rent_cars','orders.rentCar_id','=','rent_cars.id')
+            ->join('users','orders.user_id','=','users.id')
+            ->select('orders.*', 'rent_cars.title', 'rent_cars.capacity','rent_cars.location','users.name','users.phone')
+            ->orderBy('orders.id','desc')
+                        ->where('user_id',$user_id)
+                        ->orderBy('id','desc')
+                        ->get();
+        return view('user.rentCar_history',compact('orders'));
+
+
+    }
+
+
 
 
 

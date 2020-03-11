@@ -62,6 +62,16 @@ class GeneralSettingController extends Controller
             $files->move($destination_path, $picture); 
             $obj->favicon=$picture;    
         }
+
+        if ($request->hasFile('bg_img')) {
+            $files=$request->file('bg_img');  
+            $filename=$files->getClientOriginalName();
+            $picture=date('His').$filename;
+            $destination_path=base_path().'/public/backend/BgImage/';
+            $files->move($destination_path, $picture); 
+            $obj->bg_img=$picture;    
+        }
+
         $obj->save();
         return redirect()->back()->with('success', ' General setting has been added successfully');
     }

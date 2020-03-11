@@ -42,6 +42,13 @@
                <input type="file" value="{{ $gnrlstng->favicon }}" name="favicon" class="form-control">
                <b style="color:red; margin-top:10px; font-weight: bold; float: right;margin-right: 10px">Image Must be PNG &amp; Resize: 60x60</b>
             </div>
+
+            <div class="form-group">
+               <label class="col-md-3 control-label"><strong>Background Image</strong></label><br>
+               <input type="file" value="{{ $gnrlstng->bg_img }}" name="bg_img" class="form-control">
+               <b style="color:red; margin-top:10px; font-weight: bold; float: right;margin-right: 10px">Image Must be PNG &amp; Resize: 60x60</b>
+            </div>
+
             <div class="form-group">
                <label class="col-md-3 control-label"><strong>Color</strong></label><br>
                <input type="color" name="color" value="{{ $gnrlstng->color }}" class="form-control">
@@ -83,11 +90,11 @@
                  <input class="form-control input-lg" name="google_plus" value="{{ $gnrlstng->google_plus }}" type="text">
             </div>
             <div class="form-group">
-               <label class="col-md-3 control-label"><strong>Linkin</strong></label>
+               <label class="col-md-3 control-label"><strong>Pinterest</strong></label>
                  <input class="form-control input-lg" name="linkin" value="{{ $gnrlstng->linkin }}" type="text">
             </div>
             <div class="form-group">
-               <label class="col-md-3 control-label"><strong>Youtube</strong></label>
+               <label class="col-md-3 control-label"><strong>Instagram</strong></label>
                  <input class="form-control input-lg" name="youtube" value="{{ $gnrlstng->youtube }}" type="text">
             </div>
             <div class="form-group">

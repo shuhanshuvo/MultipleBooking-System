@@ -93,5 +93,6 @@
           </ul>
         </li>    
         <li><a class="app-menu__item" href="{{route('admin.all.tran')}}"><i class="app-menu__icon fa fa-exchange"></i><span class="app-menu__label">Transaction Log</span></a></li>
+        <li><a class="app-menu__item" href="{{route('admin.all.subscriber')}}"><i class="app-menu__icon fa fa-exchange"></i><span class="app-menu__label">All Subscriber</span></a></li>
       </ul>
     </aside>

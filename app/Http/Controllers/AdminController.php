@@ -100,4 +100,15 @@ class AdminController extends Controller
             return view('admin.tran', compact('trans'));
           }
       
+
+        // public function pending()
+        //   { 
+        //     Subscriber::where('status',0)->update(['order_status'=>1]);
+
+        //      $orders = Order::join('services','orders.service_id','=','services.id')
+        //             ->join('users','orders.user_id','=','users.id')
+        //             ->select('orders.*', 'services.service_name','users.first_name','users.last_name')
+        //             ->orderBy('orders.id','asc')->get();
+                    
+        //             return view('admin.all_subscriber', compact('subscribers'));
 }

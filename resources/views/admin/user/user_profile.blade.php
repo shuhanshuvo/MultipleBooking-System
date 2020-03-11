@@ -41,8 +41,8 @@
                           </a>
                         </div> -->
                     <div class="text-center">
-                      <h3>{{$user->name}}</h3><br>
-                      <h4>{{$user->email}}</h4><br>
+                      <h3>Name: {{$user->name}}</h3><br>
+                      <h4>Email: {{$user->email}}</h4><br>
                       <h4>Phone: @if($user->phone=='')
                         N/A
                         @else
@@ -79,7 +79,7 @@
                     </div>
                   </div>
                 </div> -->
-<!-- 
+
                 <br>
 
                 <div class="card">
@@ -87,9 +87,15 @@
                     <h3 style="color:white;"><i class="fa fa-cog"></i> UPDATE PROFILE</h3>
                   </div>
                   <div class="card-body">
-                    <form class="" action="#" method="post">
-                     
-                      <input type="hidden" name="userID" value="92">
+                    <form class="" action="{{route('admin.update.user')}}" method="post" enctype="multipart/form-data">
+                      @csrf
+                      
+                      <input type="hidden" name="user_id" value="{{$user->id}}">
+                      <div class="col-md-8 mb-4">
+                      <label>Photo</label>
+                      <img  style="height: 50px; width: 50px;"src="{{ asset('backend/photo/'.$user['photo']) }}" alt="{{ $user->photo }}">
+                      <input class="form-control" name="photo" value="{{$user->photo}}" type="file">
+                    </div>
                       <div class="row">
                         <div class="col-md-12">
                           <div class="form-group">
@@ -122,7 +128,7 @@
                       </div>
                     </form>
                   </div>
-                </div> -->
+                </div>
               </div>
             </div>
           </div>

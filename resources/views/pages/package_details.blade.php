@@ -1,0 +1,1 @@
+package_details.blade.php
