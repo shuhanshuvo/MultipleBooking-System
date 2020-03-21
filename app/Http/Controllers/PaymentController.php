@@ -71,6 +71,66 @@ class PaymentController extends Controller
         
     }
 
+
+
+    public function pickup_checkout($id)
+    {   
+
+        $pickup = Pickup::find($id);
+        return view('user.checkout.pickup_checkout', compact('pickup'));
+    }
+
+// Pickup Checkout
+
+     public function store_pickup_checkout (Request $request)
+    {   
+        // $validatedData = $request->validate([
+        // 'sender_number' => 'required',
+        // 'trx_id' => 'required',
+        // 'bank_number' => 'required',
+
+        //  ]);
+
+
+       $data = $request->all();
+         $user_id = Auth::User()->id;
+        // insert order
+        $odata=array();
+        $odata['pickup_id'] = $request->pickup_id;
+        
+        $odata['payment_method'] = $request->paymentMethod;
+        $odata['price'] = $request->price;
+        $odata['user_id'] = $user_id;
+        $odata['order_status'] = '0';
+        $random = $user_id.str::random(10);
+        $odata['ran_ordr_id'] = $random;
+        $order_id = DB::table('orders')
+                    ->insertGetId($odata);
+                    
+         
+        // insert Transaction
+         $sender_number = $request->sender_number;         
+         $trx_id = $request->trx_id;         
+         $bank_number = $request->bank_number;         
+         $paymentMethod = $request->paymentMethod;        
+         $price = $request->price;         
+         $tdata=array();
+            $tdata['sender_number'] = $sender_number;
+            $tdata['trx_id'] = $trx_id;
+            $tdata['user_id'] = $user_id;
+            $tdata['book_status'] = '2';
+            $tdata['bank_number'] = $bank_number;
+            $tdata['paymentMethod'] = $paymentMethod;
+            $tdata['price'] = $price;
+
+            $order_id = DB::table('transactions')
+                   ->insertGetId($tdata);
+                   
+             return back()->with('success','Your Payment process successfully');         
+        
+    }
+
+
 //// Room Checkout
 
    public function room_checkout($id)

@@ -6,7 +6,7 @@
 
     <!-- ==========Banner-Section========== -->
     <section class="banner-section">
-        <div class="banner-bg bg_img bg-fixed" data-background="{{ asset('/backend/BgImage/'.$gnrlstng['bg_img']) }}"></div>
+        <div class="banner-bg bg_img bg-fixed" data-background="{{ asset('/backend/background/img/'.$frontend['bg_img']) }}"></div>
         <div class="container">
             <div class="banner-content">
                 <h1 class="title  cd-headline clip"><span class="d-block">book </span> for 
@@ -20,7 +20,7 @@
 
                     </span>
                 </h1>
-                <p>Safe, secure, reliable ticketing.Your ticket to live entertainment!</p>
+                <p>{{$frontend->sub_title}}</p>
             </div>
         </div>
     </section>
@@ -351,7 +351,7 @@
                             <div class="item">
                                 <div class="movie-grid">
                                     <div class="movie-thumb c-thumb">
-                                        <a href="{{route('rentCar.details',$rentCar->id)}}">
+                                        <a href="{{route('home.rentCar.details',$rentCar->id)}}">
                                             <img src="{{ asset('/backend/Rentcar/img/'.$rentCar['img']) }}" alt="movie">
                                         </a>
                                         <div class="event-date">
@@ -360,7 +360,7 @@
                                         </div>
                                     </div>
                                     <div class="movie-content bg-one">
-                                        <h5 class="title m-0"><a href="{{route('rentCar.details',$rentCar->id)}}">{{$rentCar->rentCar_name}} </a>
+                                        <h5 class="title m-0"><a href="{{route('home.rentCar.details',$rentCar->id)}}">{{$rentCar->rentCar_name}} </a>
                                         </h5>
                                         <ul class="movie-rating-percent">
                                             <li>
@@ -371,7 +371,7 @@
                                             </li>
                                             <li>
                                                 <div class="thumb">
-                                                    <a href="{{route('rentCar.details',$rentCar->id)}}" class="custom-button">Details </a>
+                                                    <a href="{{route('home.rentCar.details',$rentCar->id)}}" class="custom-button">Details </a>
                                             </li>
                                         </ul>
                                     </div>
@@ -409,7 +409,7 @@
                             <div class="item">
                                 <div class="event-grid">
                                     <div class="movie-thumb c-thumb">
-                                        <a href="{{route('hotel.details',$hotel->id)}}">
+                                        <a href="{{route('home.hotel.details',$hotel->id)}}">
                                             <img src="{{ asset('/backend/Hotel/img/'.$hotel['img']) }}" alt="event">
                                         </a>
                                         <div class="event-date">
@@ -419,7 +419,7 @@
                                     </div>
                                     <div class="movie-content bg-one">
                                         <h5 class="title m-0">
-                                            <a href="{{route('hotel.details',$hotel->id)}}">{{$hotel->htl_name}}</a>
+                                            <a href="{{route('home.hotel.details',$hotel->id)}}">{{$hotel->htl_name}}</a>
                                         </h5>
                                         <ul class="movie-rating-percent">
                                             <li>
@@ -430,7 +430,7 @@
                                             </li>
                                             <li>
                                                 <div class="thumb">
-                                                    <a href="{{route('hotel.details',$hotel->id)}}" class="custom-button">Details </a>
+                                                    <a href="{{route('home.hotel.details',$hotel->id)}}" class="custom-button">Details </a>
                                             </li>
                                         </ul>
                                     </div>

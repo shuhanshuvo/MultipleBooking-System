@@ -49,6 +49,15 @@
 
 
                     <div class="row">
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for=""><strong>Price:</strong></label>
+                          <input class="form-control" type="number" name="price" value="" placeholder="Enter price">
+                          <p class="no-margin em"></p>
+                        </div>
+                      </div>
+
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for=""><strong>Capacity (Number of adult persons):</strong></label>
@@ -57,7 +66,7 @@
                         </div>
                       </div>
 
-                     <div class="col-md-6">
+                     <div class="col-md-12">
                         <div class="form-group">
                           <label for=""><strong>Pickup Location (Airport Name):</strong></label>
                           <input class="form-control" type="text" name="location" value="" placeholder="Enter Location Name">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pickup;
+use App\Order;
+use DB;
 
 class PickupController extends Controller
 {
@@ -18,6 +20,7 @@ class PickupController extends Controller
         $pickup->title=$request->title;
         // $arrayTostring = implode(',', $request->input('amenti'));
         // $obj['amenti'] = $arrayTostring;
+        $pickup->price=$request->price;
         $pickup->capacity=$request->capacity;
         $pickup->location=$request->location;
         $pickup->overview=$request->overview;
@@ -81,4 +84,64 @@ class PickupController extends Controller
         $data->delete();
         return back()->with('success','Pickup Deleted');
     }
+
+
+    public function all_book_pickup()
+    {   
+        $orders = Order::join('pickups','orders.pickup_id','=','pickups.id')
+            ->join('users','orders.user_id','=','users.id')
+            ->select('orders.*', 'pickups.title', 'pickups.capacity','pickups.location','users.name','users.phone')
+            ->orderBy('orders.id','desc')->get();
+        return view('admin.Pickup.all_booking',compact('orders'));
+
+
+    }
+
+
+    public function all_approve_pickup()
+    {   
+       $orders = Order::join('pickups','orders.pickup_id','=','pickups.id')
+            ->join('users','orders.user_id','=','users.id')
+            ->select('orders.*', 'pickups.title', 'pickups.capacity','pickups.location','users.name','users.phone')
+            ->orderBy('orders.id','desc')->get();
+        return view('admin.Pickup.all_approve',compact('orders'));
+
+
+    }
+
+
+    public function all_reject_pickup()
+
+    {   
+        $orders = Order::join('pickups','orders.pickup_id','=','pickups.id')
+            ->join('users','orders.user_id','=','users.id')
+            ->select('orders.*', 'pickups.title', 'pickups.capacity','pickups.location','users.name','users.phone')
+            ->orderBy('orders.id','desc')->get();
+        return view('admin.Pickup.all_reject',compact('orders'));
+
+
+    }
+
+
+     public function pickup_approve($id)
+      {
+        DB::table('orders')
+           ->where('id',$id)
+           ->update(['order_status' =>1]);
+
+             return back()->with('success','Approved');
+            //return a view or whatever you want tto do after
+        
+       }
+
+    public function pickup_reject($id)
+      {
+        DB::table('orders')
+           ->where('id',$id)
+           ->update(['order_status' =>2]);
+
+             return back()->with('success','Reject');
+            //return a view or whatever you want tto do after
+ 
+ }
 }

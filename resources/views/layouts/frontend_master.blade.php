@@ -74,7 +74,10 @@
     <script src="{{asset('frontend/assets/js/nice-select.js')}}"></script>
     <script src="{{asset('frontend/assets/js/main.js')}}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="{{asset('frontend/assets/js/rating.js')}}"></script>
     @include('layouts.message')
+
+       
 </body>
 
 

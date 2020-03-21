@@ -14,6 +14,7 @@
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Website Controls</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="{{route('admin.general.settings')}}"><i class="icon fa fa-cogs"></i> General Settings</a></li>
+            <li><a class="treeview-item" href="{{route('admin.frontend.settings')}}"><i class="icon fa fa-cogs"></i> Frontend</a></li>
             <li><a class="treeview-item" href="{{route('admin.Email.settings')}}" rel="noopener"><i class="icon fa fa-envelope"></i> Email Setting</a></li>
             
           </ul>
@@ -63,9 +64,9 @@
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="{{route('admin.create.pickup')}}"><i class="icon fa fa-plus"></i>Add Pickup Car</a></li>
             <li><a class="treeview-item" href="{{route('admin.all.pickup')}}"><i class="icon fa fa-circle-o"></i>All Pickup Cars</a></li>
-            <li><a class="treeview-item" href="form-samples.html"><i class="icon fa fa-circle-o"></i> All Bookings</a></li>
-            <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i>Rejected Bookings</a></li>
-            <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i>Rejection Request</a></li>
+            <li><a class="treeview-item" href="{{route('admin.all.pickup.booking')}}"><i class="icon fa fa-circle-o"></i> All Bookings</a></li>
+            <li><a class="treeview-item" href="{{route('admin.all.approve.pickup')}}"><i class="icon fa fa-circle-o"></i>Approve Bookings</a></li>
+            <li><a class="treeview-item" href="{{route('admin.all.reject.pickup')}}"><i class="icon fa fa-circle-o"></i>Rejected Bookings</a></li>
           </ul>
         </li>
 

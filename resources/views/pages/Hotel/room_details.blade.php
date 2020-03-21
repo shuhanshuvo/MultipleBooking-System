@@ -6,14 +6,19 @@
         <div class="container">
             <div class="details-banner-wrapper">
                 <div class="details-banner-thumb">
-                    <img src="{{ asset('/backend/Hotel/Lounge/img/'.$lounges['img']) }}" alt="movie">
+                    <img src="{{ asset('/backend/Hotel/img/'.$hotels['img']) }}" alt="movie">
                     
                        
                     </a>
                 </div>
                 <div class="details-banner-content offset-lg-3">
-                    <h3 class="title">{{$lounges->lounge_name}}</h3>
-                    
+                    <h3 class="title">{{$hotels->htl_name}}</h3>
+                    <div class="tags">
+                        <a href="#0">English</a>
+                        <a href="#0">Hindi</a>
+                        <a href="#0">Telegu</a>
+                        <a href="#0">Tamil</a>
+                    </div>
                     <a href="#0" class="button">horror</a>
                     <div class="social-and-duration">
                         <div class="duration-area">
@@ -47,20 +52,24 @@
                     <div class="item">
                         <div class="item-header">
                             <div class="thumb">
-                                Price
+                                <img src="{{asset('frontend/assets/images/movie/tomato2.png')}}" alt="movie">
                             </div>
-                           
+                            <div class="counter-area">
+                                <span class="counter-item odometer" data-odometer-final="88">0</span>
+                            </div>
                         </div>
-                        <p>{{$lounges->price}} TK</p>
+                        <p>tomatometer</p>
                     </div>
                     <div class="item">
                         <div class="item-header">
                             <div class="thumb">
-                                {{$lounges->max_num}}
+                                <img src="{{asset('frontend/assets/images/movie/cake2.png')}}" alt="movie">
                             </div>
-                            
+                            <div class="counter-area">
+                                <span class="counter-item odometer" data-odometer-final="88">0</span>
+                            </div>
                         </div>
-                        <p>Maximum Number of Persons</p>
+                        <p>audience Score</p>
                     </div>
                     <div class="item">
                         <div class="item-header">
@@ -89,7 +98,7 @@
                         <p><a href="#0">Rate It</a></p>
                     </div>
                 </div>
-                <a href="{{route('lounge.checkout', $lounges->id)}}" class="custom-button">Book Package</a>
+                <a href="" class="custom-button">book tickets</a>
             </div>
         </div>
     </section>
@@ -165,41 +174,41 @@
                     <div class="movie-details">
                         <h3 class="title">photos</h3>
                         <div class="details-photos owl-carousel">
-                            
                             <div class="thumb">
-                                <a href="{{ asset('/backend/Hotel/Lounge/img/'.$lounges['img']) }}" class="img-pop">
-                                    <img src="{{ asset('/backend/Hotel/Lounge/img/'.$lounges['img']) }}" alt="movie">
+                                <a href="{{ asset('/backend/Hotel/img/'.$hotels['img']) }}" class="img-pop">
+                                    <img src="{{ asset('/backend/Hotel/img/'.$hotels['img']) }}" alt="movie">
                                 </a>
                             </div>
                             <div class="thumb">
-                                <a href="{{ asset('/backend/Hotel/Lounge/img/'.$lounges['img']) }}" class="img-pop">
-                                    <img src="{{ asset('/backend/Hotel/Lounge/img/'.$lounges['img']) }}" alt="movie">
+                                <a href="{{ asset('/backend/Hotel/img/'.$hotels['img']) }}" class="img-pop">
+                                    <img src="{{ asset('/backend/Hotel/img/'.$hotels['img']) }}" alt="movie">
                                 </a>
                             </div>
                             <div class="thumb">
-                                <a href="{{ asset('/backend/Hotel/Lounge/img/'.$lounges['img']) }}" class="img-pop">
-                                    <img src="{{ asset('/backend/Hotel/Lounge/img/'.$lounges['img']) }}" alt="movie">
+                                <a href="{{ asset('/backend/Hotel/img/'.$hotels['img']) }}" class="img-pop">
+                                    <img src="{{ asset('/backend/Hotel/img/'.$hotels['img']) }}" alt="movie">
                                 </a>
                             </div>
                             <div class="thumb">
-                                <a href="{{ asset('/backend/Hotel/Lounge/img/'.$lounges['img']) }}" class="img-pop">
-                                    <img src="{{ asset('/backend/Hotel/Lounge/img/'.$lounges['img']) }}" alt="movie">
+                                <a href="{{ asset('/backend/Hotel/img/'.$hotels['img']) }}" class="img-pop">
+                                    <img src="{{ asset('/backend/Hotel/img/'.$hotels['img']) }}" alt="movie">
                                 </a>
                             </div>
                             <div class="thumb">
-                                <a href="{{ asset('/backend/Hotel/Lounge/img/'.$lounges['img']) }}" class="img-pop">
-                                    <img src="{{ asset('/backend/Hotel/Lounge/img/'.$lounges['img']) }}" alt="movie">
+                                <a href="{{ asset('/backend/Hotel/img/'.$hotels['img']) }}" class="img-pop">
+                                    <img src="{{ asset('/backend/Hotel/img/'.$hotels['img']) }}" alt="movie">
+                                </a>
+                            </div>
+                            <div class="thumb">
+                                <a href="{{ asset('/backend/Hotel/img/'.$hotels['img']) }}" class="img-pop">
+                                    <img src="{{ asset('/backend/Hotel/img/'.$hotels['img']) }}" alt="movie">
                                 </a>
                             </div>
                         </div>
                         <div class="tab summery-review">
                             <ul class="tab-menu">
-                                <li>
-                                    Overview
-                                </li>
-
                                 <li class="active">
-                                   Condition of entry
+                                    Overview
                                 </li>
                                 
                             </ul>
@@ -207,21 +216,12 @@
                                 <div class="tab-item active">
                                     <div class="item">
                                         <h5 class="sub-title">Overview</h5>
-                                        <p>{!!$lounges->overview !!}</p>
+                                        <p>{!!$hotels->overview !!}</p>
                                     </div>
 
                                 </div>
 
-                                <div class="tab-item active">
-                                    
-                                        <h5 class="sub-title">Condition of entry:</h5>
-                                        <p>{!!$lounges->condition !!}</p>
-                                    
-                                </div>
-
                             </div>
-
-                            
                         </div>
                     </div>
                 </div>

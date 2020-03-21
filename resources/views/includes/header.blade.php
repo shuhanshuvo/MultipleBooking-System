@@ -42,7 +42,7 @@
                         <ul class="submenu">
                             @foreach($hotels as $hotel)
                             <li>
-                                <a href="{{route('hotel.details',$hotel->id)}}">{{$hotel->htl_name}}</a>
+                                <a href="{{route('home.hotel.details',$hotel->id)}}">{{$hotel->htl_name}}</a>
                             </li>
                             @endforeach
                            

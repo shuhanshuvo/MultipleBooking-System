@@ -43,12 +43,7 @@
                <b style="color:red; margin-top:10px; font-weight: bold; float: right;margin-right: 10px">Image Must be PNG &amp; Resize: 60x60</b>
             </div>
 
-            <div class="form-group">
-               <label class="col-md-3 control-label"><strong>Background Image</strong></label><br>
-               <input type="file" value="{{ $gnrlstng->bg_img }}" name="bg_img" class="form-control">
-               <b style="color:red; margin-top:10px; font-weight: bold; float: right;margin-right: 10px">Image Must be PNG &amp; Resize: 60x60</b>
-            </div>
-
+            
             <div class="form-group">
                <label class="col-md-3 control-label"><strong>Color</strong></label><br>
                <input type="color" name="color" value="{{ $gnrlstng->color }}" class="form-control">

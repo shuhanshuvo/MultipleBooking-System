@@ -49,53 +49,92 @@
         <div class="container">
             <div class="book-wrapper offset-lg-3">
                 <div class="left-side">
+
                     <div class="item">
                         <div class="item-header">
                             <div class="thumb">
-                                <img src="{{asset('frontend/assets/images/movie/tomato2.png')}}" alt="movie">
+                                Price
                             </div>
-                            <div class="counter-area">
-                                <span class="counter-item odometer" data-odometer-final="88">0</span>
-                            </div>
+                           
                         </div>
-                        <p>tomatometer</p>
+                        <p>{{$packages->price}} TK</p>
                     </div>
                     <div class="item">
                         <div class="item-header">
                             <div class="thumb">
-                                <img src="{{asset('frontend/assets/images/movie/cake2.png')}}" alt="movie">
+                                {{$packages->min_num}}
                             </div>
-                            <div class="counter-area">
-                                <span class="counter-item odometer" data-odometer-final="88">0</span>
-                            </div>
+                            
                         </div>
-                        <p>audience Score</p>
+                        <p>Minimum Number of Persons</p>
                     </div>
+                
+                 
                     <div class="item">
                         <div class="item-header">
-                            <h5 class="title">4.5</h5>
+                            <h5 class="title">{{ $avg_rating }}</h5>
                             <div class="rated">
-                                <i class="fas fa-heart"></i>
-                                <i class="fas fa-heart"></i>
-                                <i class="fas fa-heart"></i>
-                                <i class="fas fa-heart"></i>
-                                <i class="fas fa-heart"></i>
+                                   <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
                             </div>
                         </div>
                         <p>Users Rating</p>
                     </div>
                     <div class="item">
                         <div class="item-header">
-                            <div class="rated rate-it">
+                            <!-- div class="rated rate-it">
                                 <i class="fas fa-heart"></i>
                                 <i class="fas fa-heart"></i>
                                 <i class="fas fa-heart"></i>
                                 <i class="fas fa-heart"></i>
                                 <i class="fas fa-heart"></i>
-                            </div>
-                            <h5 class="title">0.0</h5>
+                            </div> -->
+
+                               
+                           <form class="rating" action="{{route('service.rating')}}" method="post">
+                            @csrf
+
+                                 <input type="hidden" name="pkg_id" value="{{$packages->id}}">
+                                  <label>
+                                    <input type="radio" name="stars" value="1" />
+                                    <span class="icon">★</span>
+                                  </label>
+                                  <label>
+                                    <input type="radio" name="stars" value="2" />
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                  </label>
+                                  <label>
+                                    <input type="radio" name="stars" value="3" />
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>   
+                                  </label>
+                                  <label>
+                                    <input type="radio" name="stars" value="4" />
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                  </label>
+                                  <label>
+                                    <input type="radio" name="stars" value="5" />
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                  </label>
+                                  <br>
+                                  <br>
+                                  <br>
+                                  <button type="submit" class="btn btn-primary">rate</button>
+                                </form>
+                                
                         </div>
-                        <p><a href="#0">Rate It</a></p>
                     </div>
                 </div>
                 <a href="{{route('package.checkout', $packages->id)}}" class="custom-button">Book Package</a>
@@ -225,5 +264,7 @@
         </div>
     </section>
     <!-- ==========Movie-Section========== -->
+
+
 
 @endsection

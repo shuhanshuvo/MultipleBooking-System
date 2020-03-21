@@ -22,6 +22,7 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title"><strong>Title::</strong>&nbsp;{{ $pickups->title }}</h5>
+                    <p><strong>Price:</strong>&nbsp;{{ $pickups->price }}</p>
                     <p><strong>Capacity (Number of adult persons):</strong>&nbsp;{{ $pickups->capacity }}</p>
                     
                     <p><strong>Pickup Location (Airport Name):</strong>&nbsp;{{ $pickups->location }} </p>
@@ -34,7 +35,7 @@
                     
                 </div>
                 <div class="" style="">
-                    <a href="#" class="btn btn-primary btn-block form-control-lg">Book</a>
+                    <a href="{{route('pickup.checkout',$pickups->id)}}" class="btn btn-primary btn-block form-control-lg">Book</a>
 
 
                 </div>

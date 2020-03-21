@@ -6,13 +6,13 @@
         <div class="container">
             <div class="details-banner-wrapper">
                 <div class="details-banner-thumb">
-                    <img src="{{ asset('/backend/package/img/'.$packages['img']) }}" alt="movie">
+                    <img src="{{ asset('/backend/Rentcar/img/'.$rentCars['img']) }}" alt="movie">
                     
                        
                     </a>
                 </div>
                 <div class="details-banner-content offset-lg-3">
-                    <h3 class="title">{{$packages->pkg_name}}</h3>
+                    <h3 class="title">{{$rentCars->title}}</h3>
                     <div class="tags">
                         <a href="#0">English</a>
                         <a href="#0">Hindi</a>
@@ -52,24 +52,21 @@
                     <div class="item">
                         <div class="item-header">
                             <div class="thumb">
-                                <img src="{{asset('frontend/assets/images/movie/tomato2.png')}}" alt="movie">
+                                Price
                             </div>
-                            <div class="counter-area">
-                                <span class="counter-item odometer" data-odometer-final="88">0</span>
-                            </div>
+                            
                         </div>
-                        <p>tomatometer</p>
+                        <p>{{$rentCars->price}} TK</p>
                     </div>
                     <div class="item">
                         <div class="item-header">
                             <div class="thumb">
-                                <img src="{{asset('frontend/assets/images/movie/cake2.png')}}" alt="movie">
+                                {{$rentCars->capacity}}
+                               
                             </div>
-                            <div class="counter-area">
-                                <span class="counter-item odometer" data-odometer-final="88">0</span>
-                            </div>
+                            
                         </div>
-                        <p>audience Score</p>
+                        <p>Number of adult persons</p>
                     </div>
                     <div class="item">
                         <div class="item-header">
@@ -98,7 +95,7 @@
                         <p><a href="#0">Rate It</a></p>
                     </div>
                 </div>
-                <a href="{{route('package.checkout', $packages->id)}}" class="custom-button">Book Package</a>
+                <a href="{{route('rentCar.checkout', $rentCars->id)}}" class="custom-button">Book Package</a>
             </div>
         </div>
     </section>
@@ -175,33 +172,33 @@
                         <h3 class="title">photos</h3>
                         <div class="details-photos owl-carousel">
                             <div class="thumb">
-                                <a href="{{ asset('/backend/Hotel/img/'.$packages['img']) }}" class="img-pop">
-                                    <img src="{{ asset('/backend/Hotel/img/'.$packages['img']) }}" alt="movie">
+                                <a href="{{ asset('/backend/Rentcar/img/'.$rentCars['img']) }}" class="img-pop">
+                                    <img src="{{ asset('/backend/Rentcar/img/'.$rentCars['img']) }}" alt="movie">
                                 </a>
                             </div>
                             <div class="thumb">
-                                <a href="{{ asset('/backend/package/img/'.$packages['img']) }}" class="img-pop">
-                                    <img src="{{ asset('/backend/package/img/'.$packages['img']) }}" alt="movie">
+                                <a href="{{ asset('/backend/Rentcar/img/'.$rentCars['img']) }}" class="img-pop">
+                                    <img src="{{ asset('/backend/Rentcar/img/'.$rentCars['img']) }}" alt="movie">
                                 </a>
                             </div>
                             <div class="thumb">
-                                <a href="{{ asset('/backend/package/img/'.$packages['img']) }}" class="img-pop">
-                                    <img src="{{ asset('/backend/package/img/'.$packages['img']) }}" alt="movie">
+                                <a href="{{ asset('/backend/Rentcar/img/'.$rentCars['img']) }}" class="img-pop">
+                                    <img src="{{ asset('/backend/Rentcar/img/'.$rentCars['img']) }}" alt="movie">
                                 </a>
                             </div>
                             <div class="thumb">
-                                <a href="{{ asset('/backend/package/img/'.$packages['img']) }}" class="img-pop">
-                                    <img src="{{ asset('/backend/package/img/'.$packages['img']) }}" alt="movie">
+                                <a href="{{ asset('/backend/Rentcar/img/'.$rentCars['img']) }}" class="img-pop">
+                                    <img src="{{ asset('/backend/Rentcar/img/'.$rentCars['img']) }}" alt="movie">
                                 </a>
                             </div>
                             <div class="thumb">
-                                <a href="{{ asset('/backend/package/img/'.$packages['img']) }}" class="img-pop">
-                                    <img src="{{ asset('/backend/package/img/'.$packages['img']) }}" alt="movie">
+                                <a href="{{ asset('/backend/Rentcar/img/'.$rentCars['img']) }}" class="img-pop">
+                                    <img src="{{ asset('/backend/Rentcar/img/'.$rentCars['img']) }}" alt="movie">
                                 </a>
                             </div>
                             <div class="thumb">
-                                <a href="{{ asset('/backend/package/img/'.$packages['img']) }}" class="img-pop">
-                                    <img src="{{ asset('/backend/package/img/'.$packages['img']) }}" alt="movie">
+                                <a href="{{ asset('/backend/Rentcar/img/'.$rentCars['img']) }}" class="img-pop">
+                                    <img src="{{ asset('/backend/Rentcar/img/'.$rentCars['img']) }}" alt="movie">
                                 </a>
                             </div>
                         </div>
@@ -218,7 +215,7 @@
                                 <div class="tab-item active">
                                     <div class="item">
                                         <h5 class="sub-title">Overview</h5>
-                                        <p>{!!$packages->overview !!}</p>
+                                        <p>{!!$rentCars->overview !!}</p>
                                     </div>
 
                                 </div>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePickupsTable extends Migration
+class CreateRatingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreatePickupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pickups', function (Blueprint $table) {
+        Schema::create('ratings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('img');
-            $table->string('price');
-            $table->string('capacity');
-            $table->string('location');
-            $table->text('overview');
+            $table->string('user_id');
+            $table->string('pkg_id');
+            $table->string('htl_id');
+            $table->string('lounge_id');
+            $table->string('rentcar_id');
+            $table->string('pickup_id');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreatePickupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pickups');
+        Schema::dropIfExists('ratings');
     }
 }

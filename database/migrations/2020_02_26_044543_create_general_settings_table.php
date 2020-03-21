@@ -19,7 +19,7 @@ class CreateGeneralSettingsTable extends Migration
             $table->string('logo_name',20)->nullable();
             $table->string('logo')->nullable();
             $table->string('favicon')->nullable();
-            $table->string('bg_img')->nullable();
+           
             $table->string('color',15)->nullable();
             $table->string('navbar_color',15)->nullable();
             $table->string('address')->nullable();

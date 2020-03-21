@@ -15,16 +15,16 @@
             <strong style="" class="text-light"><i class="fas fa-user"></i> Payment info</strong>
           </h5> -->
           <hr class="mb-4">
-          <form action="{{route('store.room.checkout')}}" method="post">
+          <form action="{{route('store.pickup.checkout')}}" method="post">
             @csrf
             
              <!-- bkash -->
 
-            <input type="hidden" name="price" value="{{$room->price}}">
-            <input type="hidden" name="hotel_id" value="{{$room->htl_id}}">
+            <input type="hidden" name="price" value="{{$pickup->price}}">
+            <input type="hidden" name="pickup_id" value="{{$pickup->id}}">
             <div class="form-check-inline">
                <label class="form-check-label" for="radio2">
-               <input type="hidden" name="room_id" value="{{$room->id}}">
+               
                <input type="radio" class="form-check-input payment bkashCheck1" id="radio2" name="paymentMethod" value="bkash"  required="required"> 
               <img src="https://lh3.googleusercontent.com/t_AmjRLX3-4Aoss0ABhG28QvdQ760Fl3h3TLicJYWjQQutrgaZXfxD8ih1K3MeF6fA" class="img-responsive" class="" height="50px" width="50px">
                </label>
@@ -64,7 +64,7 @@
 
             <div id="bkash" class="collapse card text-light bg-dark formdiv">
                <div class="card-footer text-muted">
-                  <p align="justify">Fillup below form."SEND MONEY" cost will be added with net price.Total amount you need to send us at <b>Tk {{$room->price}}</b></p>
+                  <p align="justify">Fillup below form."SEND MONEY" cost will be added with net price.Total amount you need to send us at <b>Tk {{$pickup->price}}</b></p>
                </div>
                <div class="card-body bg-light text-info">
                   <label class="" for="debit"> Sender Number</label>
@@ -81,7 +81,7 @@
 
             <div id="bank" class="collapse card text-light bg-dark bankDiv">
                <div class="card-footer text-muted">
-                  <p align="justify">Fillup below form.Also note that 5% Bank "SEND MONEY" cost will be added with net price.Total amount you need to send us at <b>Tk {{$room->price}} </b></p>
+                  <p align="justify">Fillup below form.Also note that 5% Bank "SEND MONEY" cost will be added with net price.Total amount you need to send us at <b>Tk {{$pickup->price}} </b></p>
                </div>
                <div class="card-body bg-light text-info">
                   <p align="justify">Bank Account Number:<b>5415645641</b></p>

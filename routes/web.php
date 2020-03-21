@@ -15,8 +15,9 @@ Route::get('/','FrontendController@homeindex');
 
 Route::get('movie-grid', 'FrontendController@movie_grid')->name('movie.grid');
 Route::get('package-details/{id}', 'FrontendController@package_details')->name('home.package.details');
-Route::get('hotel-details/{id}', 'FrontendController@hotel_details')->name('hotel.details');
+Route::get('hotel-details/{id}', 'FrontendController@hotel_details')->name('home.hotel.details');
 Route::get('lounge-details/{id}', 'FrontendController@lounge_details')->name('home.lounge.details');
+Route::get('rentCar-details/{id}', 'FrontendController@rentCar_details')->name('home.rentCar.details');
 
 Route::get('contact', 'FrontendController@contact')->name('contact.page');
 Route::post('store-contact', 'FrontendController@store_contact')->name('store.contact');
@@ -56,6 +57,14 @@ Route::group(['middleware' => ['auth:admin']], function() {
 
             Route::get('/general-settings', 'GeneralSettingController@g_settings')->name('admin.general.settings');
             Route::post('/general-settings', 'GeneralSettingController@store_g_settings')->name('admin.store.general.settings'); 
+
+//Frontend Settings
+
+            Route::get('/frontend-settings', 'FrontendController@frontend_settings')->name('admin.frontend.settings');
+            Route::post('/frontend-settings', 'FrontendController@store_front_settings')->name('admin.store.frontend.settings'); 
+
+
+
 
 //Email Settings
 
@@ -169,6 +178,21 @@ Route::group(['middleware' => ['auth:admin']], function() {
             Route::post('/update-pickup', 'PickupController@update_pickup')->name('admin.update.pickup');
             Route::post('/pickup-delete', 'PickupController@pickup_delete')->name('admin.pickup.delete');
 
+
+             //booking
+
+            Route::get('/all-pickup-booking', 'PickupController@all_book_pickup')->name('admin.all.pickup.booking');
+
+             // Approve/ Disapprove
+    
+            Route::get('/pickup-approve/{id}', 'PickupController@pickup_approve')->name('pickup.approve');
+            Route::get('/pickup-reject/{id}', 'PickupController@pickup_reject')->name('pickup.reject');
+
+            //Approve/Reject booking
+            
+            Route::get('approve-booking-pickup', 'PickupController@all_approve_pickup')->name('admin.all.approve.pickup');
+            Route::get('reject-booking-pickup', 'PickupController@all_reject_pickup')->name('admin.all.reject.pickup');
+
 //Rent Cars Management
 
             Route::get('/add-rentCar', 'RentCarController@add_rentCar')->name('admin.create.rentCar');
@@ -243,7 +267,7 @@ Route::group(['middleware' => ['auth']], function() {
 
              Route::get('/all-hotel', 'UserController@all_hotel')->name('user.all.hotel');
              Route::get('/all-room/{id}', 'UserController@all_room')->name('user.all.room');
-             // Route::get('hotel-detailes/{id}','UserController@hotel_details')->name('hotel.details');
+             Route::get('hotel-detailes/{id}','UserController@hotel_details')->name('hotel.details');
              Route::get('room-detailes/{id}','UserController@room_details')->name('room.details');
 
 //Lounge Show...........
@@ -270,17 +294,24 @@ Route::group(['middleware' => ['auth']], function() {
             Route::get('package-checkout/{id}','PaymentController@package_checkout')->name('package.checkout');
             Route::post('package-checkout','PaymentController@store_checkout')->name('store.package.checkout');
 
+
+           //Pickup
+
+            Route::get('pickup-checkout/{id}','PaymentController@pickup_checkout')->name('pickup.checkout');
+            Route::post('pickup-checkout','PaymentController@store_pickup_checkout')->name('store.pickup.checkout');
+
            //Room
 
             Route::get('room-checkout/{id}','PaymentController@room_checkout')->name('room.checkout');
             Route::post('room-checkout','PaymentController@store_room_checkout')->name('store.room.checkout');
+
 
              //Lounge
 
             Route::get('lounge-checkout/{id}','PaymentController@lounge_checkout')->name('lounge.checkout');
             Route::post('lounge-checkout','PaymentController@store_lounge_checkout')->name('store.lounge.checkout');
 
-             //Lounge
+             //rentCar
 
             Route::get('rentCar-checkout/{id}','PaymentController@rentCar_checkout')->name('rentCar.checkout');
             Route::post('rentCar-checkout','PaymentController@store_rentCar_checkout')->name('store.rentCar.checkout');
@@ -291,6 +322,10 @@ Route::group(['middleware' => ['auth']], function() {
             Route::get('lounge-history','UserController@lounge_history')->name('lounge.history');
             Route::get('hotel-room-history','UserController@hotel_history')->name('hotel.history');
             Route::get('rent-car-history','UserController@rentCar_history')->name('rentCar.history');
+
+    //Rating
+            Route::post('/rate','FrontendController@rating')->name('service.rating');
+            
                 
             });
         });
